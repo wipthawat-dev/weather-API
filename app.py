@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# wipthawat.dev up in to Github
 
 import urllib
 import json
