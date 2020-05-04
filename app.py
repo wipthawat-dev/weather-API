@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import urllib
 import json
 import os
@@ -73,7 +72,7 @@ def makeYqlQuery(req):
         return None
         
         return "guid'" + "0005EEE4-48CC-1ED5-B0C9-FA163EA701AC" + "')"
-   return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
+   #return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 
 def makeWebhookResult(data):
@@ -92,20 +91,20 @@ def makeWebhookResult(data):
     if channel is None:
         return {}
 
-    item = channel.get('item')
-    location = channel.get('location')
-    units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
-       return {}
+   # item = channel.get('item')
+   # location = channel.get('location')
+   # units = channel.get('units')
+   # if (location is None) or (item is None) or (units is None):
+   #    return {}
 
-    condition = item.get('condition')
-    if condition is None:
-       return {}
+   # condition = item.get('condition')
+   # if condition is None:
+   #     return {}
 
-     print(json.dumps(item, indent=4))
+    # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-            ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+   # speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+   #         ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 	speech = " The Work Item No. " + result + " has been created for " + channel
     print("Response1:")
     print(speech)
@@ -113,8 +112,8 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-         "data": data,
-         "contextOut": [],
+        # "data": data,
+        # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
 
