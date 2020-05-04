@@ -92,20 +92,20 @@ def makeWebhookResult(data):
     if channel is None:
         return {}
 
-   # item = channel.get('item')
-   # location = channel.get('location')
-   # units = channel.get('units')
-   # if (location is None) or (item is None) or (units is None):
-   #    return {}
+    item = channel.get('item')
+    location = channel.get('location')
+    units = channel.get('units')
+    if (location is None) or (item is None) or (units is None):
+       return {}
 
-   # condition = item.get('condition')
-   # if condition is None:
-   #     return {}
+    condition = item.get('condition')
+    if condition is None:
+       return {}
 
-    # print(json.dumps(item, indent=4))
+     print(json.dumps(item, indent=4))
 
-   # speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-   #         ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+            ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 	speech = " The Work Item No. " + result + " has been created for " + channel
     print("Response1:")
     print(speech)
@@ -113,8 +113,8 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
+         "data": data,
+         "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
 
